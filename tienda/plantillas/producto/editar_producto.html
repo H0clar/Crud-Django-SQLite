@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Editar Producto{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Editar Producto</h1>
+    <form method="post">
+        {% csrf_token %}
+        <!-- Muestra los datos actuales del producto y permite editarlos -->
+        <input type="submit" value="Guardar Cambios">
+    </form>
+</div>
+{% endblock %}

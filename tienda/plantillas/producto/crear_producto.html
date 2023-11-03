@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Crear Nuevo Producto{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Crear Nuevo Producto</h1>
+    <form method="post">
+        {% csrf_token %}
+        <!-- Agrega campos del formulario para crear un nuevo producto -->
+        <input type="submit" value="Guardar">
+    </form>
+</div>
+{% endblock %}

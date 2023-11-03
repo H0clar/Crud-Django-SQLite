@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Detalle de Venta{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Detalle de Venta</h2>
+    <h3>Producto: {{ producto.nombre }}</h3>
+    <p>ID del Producto: {{ producto.codigo }}</p>
+    <p>Precio: {{ producto.precio }}</p>
+    <p>Stock: {{ producto.stock }}</p>
+    <p>Categoría: {{ producto.categoria.nombre }}</p>
+    <form method="post" action="{% url 'registrar_venta' producto.codigo %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Comprar</button>
+        <input type="hidden" name="generate_pdf" value="1">
+    </form>
+
+    <table class="table">
+        <tbody>
+            {% for venta in ventas %}
+                <tr>
+                    <td>{{ venta.fecha_venta }}</td>
+                    <td>{{ venta.cantidad }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}

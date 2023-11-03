@@ -1,0 +1,39 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Lista de Productos{% endblock %}
+
+{% block content %}
+
+
+
+<div class="container">
+    <h2>Lista de Productos</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Categoría</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for producto in productos %}
+                <tr>
+                    <td>{{ producto.codigo }}</td>
+                    <td>{{ producto.nombre }}</td>
+                    <td>{{ producto.precio }}</td>
+                    <td>{{ producto.stock }}</td>
+                    <td>{{ producto.categoria.nombre }}</td>
+                    <td>
+                        <a href="{% url 'registrar_venta' producto.codigo %}" class="btn btn-primary">Detalle de Venta</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

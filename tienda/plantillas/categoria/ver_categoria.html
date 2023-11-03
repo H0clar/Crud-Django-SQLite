@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Lista de Categorías
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Lista de Categorías</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for categoria in categorias %}
+                <tr>
+                    <td>{{ categoria.codigo }}</td>
+                    <td>{{ categoria.nombre }}</td>
+                    <td>{{ categoria.descripcion }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
